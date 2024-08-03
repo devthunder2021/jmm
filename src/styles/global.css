@@ -269,11 +269,11 @@ button .link {
 }
 /* filled link */
 .link.filled {
-  @apply bg-platinum hover:bg-dark-green dark:hover:bg-dark-pastel-green;
+  @apply bg-platinum hover:bg-pigment-green dark:hover:bg-dark-pastel-green;
 }
 /* bordered link */
 .link.bordered {
-  @apply border border-dark-green dark:border-dark-pastel-green rounded-2xl;
+  @apply border border-pigment-green dark:border-dark-pastel-green rounded-2xl;
 }
 /* active link */
 .link[aria-current="page"] {
