@@ -1,7 +1,29 @@
 ---
+// layout
 import MainLayout from "../layouts/MainLayout.astro";
+// link component
+import Link from "../components/Link.astro";
 ---
 
-<MainLayout title="About">
-  <h1>About Page</h1>
+<MainLayout title="About" description="About Page">
+  <section id="about" aria-label="About Me">
+    <!-- insert image -->
+    <div class="content">
+      <h1>About Page</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+        blanditiis id in unde reiciendis natus! Tempore repellendus voluptates
+        cum neque obcaecati dolore eius, velit veniam ab rem aspernatur a
+        aliquid.
+      </p>
+      <button>
+        <Link
+          href="mailto:admin@jordanmingle.dev"
+          text="Contact Me"
+          isFilled
+          borderVisible
+        />
+      </button>
+    </div>
+  </section>
 </MainLayout>

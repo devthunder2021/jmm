@@ -9,7 +9,7 @@ import navData from "../data/navData";
 
 <!-- Navigation -->
 <nav x-data="{ open: false }" class="flex items-center">
-  <ul class="hidden md:flex items-center gap-4 text-xl">
+  <ul class="hidden md:flex items-center gap-4 text-xl font-geist-500">
     {
       navData.map((item) => (
         <Link text={item.name} href={item.path} isFilled={false} data-navLink />
@@ -44,7 +44,7 @@ import navData from "../data/navData";
     @click.outside.stop="open = false"
   >
     <ul
-      class="w-full flex flex-col items-center text-2xl space-y-4 py-4"
+      class="w-full flex flex-col items-center text-2xl space-y-4 py-4 font-geist-500"
       x-cloak
     >
       {
