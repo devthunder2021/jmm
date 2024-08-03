@@ -1,0 +1,73 @@
+---
+// components
+import { Icon } from "astro-icon/components";
+import Link from "./Link.astro";
+import DarkModeToggle from "../components/DarkModeToggle.astro";
+// data
+import navData from "../data/navData";
+---
+
+<!-- Navigation -->
+<nav x-data="{ open: false }" class="flex items-center">
+  <ul class="hidden md:flex items-center gap-4 text-xl">
+    {
+      navData.map((item) => (
+        <Link text={item.name} href={item.path} isFilled={false} data-navLink />
+      ))
+    }
+  </ul>
+  <!-- Dark Mode Toggle -->
+  <div class="mx-4">
+    <DarkModeToggle />
+  </div>
+
+  <!-- Mobile Menu Buttons -->
+  <div class="flex items-center md:hidden">
+    <button @click="open = !open">
+      <Icon name="menu-burger-duotone" width={32} height={32} x-show="!open" />
+      <Icon
+        name="menu-close-duotone"
+        width={32}
+        height={32}
+        x-cloak
+        x-show="open"
+      />
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div
+    class="md:hidden bg-white dark:bg-smoky-black border-t border-b border-black/40 dark:border-white-smoke/40 fixed top-16 left-0 right-0 w-full h-[300px] z-10 flex items-center"
+    x-show="open"
+    x-transition.scale.origin.top
+    x-cloak
+    @click.outside.stop="open = false"
+  >
+    <ul
+      class="w-full flex flex-col items-center text-2xl space-y-4 py-4"
+      x-cloak
+    >
+      {
+        navData.map((item) => (
+          <Link
+            text={item.name}
+            href={item.path}
+            isFilled={false}
+            data-navLink
+          />
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<!-- Scripts -->
+<script>
+  const navLinks = document.querySelectorAll("[data-navLink]");
+
+  navLinks.forEach((link) => {
+    if (link.getAttribute("href") === window.location.pathname) {
+      link.setAttribute("aria-current", "page");
+    }
+  });
+</script>

@@ -1,0 +1,33 @@
+---
+// main head
+import MainHead from "./MainHead.astro";
+// header
+import Header from "../components/Header.astro";
+// footer
+import Footer from "../components/Footer.astro";
+// styles
+import "../styles/global.css";
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html
+  lang="en"
+  x-data="{darkMode: localStorage.getItem('darkMode')}"
+  x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
+  x-bind:data-theme="darkMode"
+>
+  <MainHead {title} {description} />
+  <body
+    class="bg-body-background dark:bg-body-background-dark font-geist-400 bg-white dark:bg-black text-black dark:text-white overflow-x-hidden"
+  >
+    <Header />
+    <main
+      class="min-h-[100svh] container mx-auto max-w-screen-xl py-20 px-8 md:px-4"
+    >
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

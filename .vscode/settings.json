@@ -1,0 +1,13 @@
+{
+    "scss.lint.unknownAtRules": "ignore",
+    "css.lint.unknownAtRules": "ignore",
+    "markdownlint.config": {
+        "MD033": {
+            "allowed_elements": [
+                "nobr",
+                "sup",
+                "a"
+            ]
+        }
+    },
+}

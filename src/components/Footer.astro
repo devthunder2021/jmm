@@ -1,0 +1,15 @@
+<footer
+  class="w-full border-t border-black/40 dark:border-white-smoke/40 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-smoky-black/95 dark:supports-[backdrop-filter]:bg-smoky-black/60 text-black dark:text-white"
+>
+  <div class="flex items-center h-16 max-w-screen-xl mx-auto px-8 md:px-4">
+    <small
+      >Copyright &copy; <span id="copyright"></span> | All rights reserved</small
+    >
+  </div>
+</footer>
+
+<script>
+  document.querySelector("#copyright")!.textContent = new Date()
+    .getFullYear()
+    .toString();
+</script>

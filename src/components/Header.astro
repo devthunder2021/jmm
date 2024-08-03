@@ -1,0 +1,16 @@
+---
+import Logo from "./Logo.astro";
+import Nav from "./Nav.astro";
+---
+
+<header
+  class="w-full sticky top-0 z-50 border-b border-black/40 dark:border-white-smoke/40 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-smoky-black/95 dark:supports-[backdrop-filter]:bg-smoky-black/60"
+>
+  <!-- container -->
+  <div
+    class="max-w-screen-xl h-16 mx-auto flex items-center justify-between px-8 md:px-4"
+  >
+    <Logo />
+    <Nav />
+  </div>
+</header>
