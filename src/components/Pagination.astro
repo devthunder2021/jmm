@@ -2,7 +2,7 @@
 // astro-icon
 import { Icon } from "astro-icon/components";
 
-const { currentPage, totalPages, disablePrevious, disableNext } = Astro.props;
+const { currentPage, disablePrevious, disableNext } = Astro.props;
 
 interface Props {
   currentPage: number;
@@ -27,7 +27,7 @@ interface Props {
     href={"/articles/?page=" + (currentPage + 1)}
     class={disableNext
       ? "flex items-center gap-2 bg-gray-100 dark:bg-black p-2 mb-6 text-dim-gray pointer-events-none rounded-2xl"
-      : "flex items-center gap-2 bg-platinum text-black  border border-dark-green dark:border-dark-pastel-green rounded-2xl p-2 mb-6 hover:bg-dark-green dark:hover:bg-dark-pastel-green hover:text-white dark:hover:text-black"}
+      : "flex items-center gap-2 bg-platinum text-black  border border-pigment-green dark:border-dark-pastel-green rounded-2xl p-2 mb-6 hover:bg-pigment-green dark:hover:bg-dark-pastel-green hover:text-white dark:hover:text-black"}
   >
     Next
     <Icon name="arrow-right" width={24} height={24} />

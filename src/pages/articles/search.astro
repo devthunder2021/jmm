@@ -1,0 +1,57 @@
+---
+// astro
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+// layout
+import MainLayout from "../../layouts/MainLayout.astro";
+// components
+import Link from "../../components/Link.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+import SearchForm from "../../components/SearchForm.astro";
+
+const query: string | null = Astro.url.searchParams.get("query");
+
+const allBlogArticles: CollectionEntry<"blog">[] = await getCollection("blog");
+
+// Filter articles based on query
+const searchResults = allBlogArticles.filter((article) => {
+  const titleMatch: boolean = article.data.title
+    .toLowerCase()
+    .includes(query!.toLowerCase());
+
+  const bodyMatch: boolean = article.body
+    .toLowerCase()
+    .includes(query!.toLowerCase());
+
+  const slugMatch: boolean = article.slug
+    .toLowerCase()
+    .includes(query!.toLowerCase());
+
+  return titleMatch || bodyMatch || slugMatch;
+});
+---
+
+<MainLayout title="Search Results">
+  <button>
+    <Link
+      text={"Back To Articles"}
+      href={"/articles/"}
+      isFilled={true}
+      borderVisible={true}
+      icon={{
+        name: "arrow-back",
+        side: "left",
+      }}
+    />
+  </button>
+
+  <SearchForm />
+
+  <br />
+
+  <h1 class="text-2xl pb-3 mt-6">Results For <strong>{query}</strong></h1>
+
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {searchResults.map((article) => <ArticleCard article={article} />)}
+  </div>
+</MainLayout>

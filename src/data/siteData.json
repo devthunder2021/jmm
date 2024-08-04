@@ -1,0 +1,8 @@
+{
+    "title": "Jordan Mingle's Tech Blog",
+    "description": "Walkthroughs and how tos for people of the web.",
+    "image": {
+        "src": "/assets/images/articles/image1.png",
+        "alt": "My Astro Blog"
+    }
+}
