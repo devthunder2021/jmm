@@ -1,4 +1,6 @@
 ---
+// speed insights
+import SpeedInsights from "@vercel/speed-insights/astro";
 // main head
 import MainHead from "./MainHead.astro";
 // header
@@ -29,5 +31,6 @@ const { title, description } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <SpeedInsights />
   </body>
 </html>
