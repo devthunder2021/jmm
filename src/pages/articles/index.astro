@@ -1,10 +1,14 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
-import ArticleCard from "../../components/ArticleCard.astro";
-// import SearchForm from "../../components/SearchForm.astro";
-import Pagination from "../../components/Pagination.astro";
+// astro
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+// layout
+import MainLayout from "../../layouts/MainLayout.astro";
+// components
+import ArticleCard from "../../components/ArticleCard.astro";
+import SearchForm from "../../components/SearchForm.astro";
+import Pagination from "../../components/Pagination.astro";
+// constants
 import { ARTICLES_PER_PAGE } from "../../constants";
 
 const currentPage: number | null = +Astro.url.searchParams.get("page")! || 1;
@@ -27,11 +31,14 @@ const articlesForPage: CollectionEntry<"blog">[] = allBlogArticles.slice(
 ---
 
 <MainLayout title="Articles" description="Browse all articles">
-  <h1 class="text-4xl md:text-6xl font-geist-900">
-    All Articles - Page: {currentPage} / {totalPages}
+  <h1 class="text-4xl md:text-5xl lg:text-6xl font-geist-900 mb-1">
+    Browse Articles
   </h1>
+  <p class="mb-8">
+    <span class="font-geist-500 text-3xl">Page: {currentPage} / {totalPages}</span>
+  </p>
   <!-- Search Form -->
-  <!-- <SearchForm /> -->
+  <SearchForm />
   <br />
   <!-- Main Grid -->
   <section class="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
