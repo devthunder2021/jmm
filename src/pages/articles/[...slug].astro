@@ -1,0 +1,41 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getEntry } from "astro:content";
+import Link from "../../components/Link.astro";
+import ArticleHeader from "../../components/ArticleHeader.astro";
+
+const { slug } = Astro.params;
+
+if (slug === undefined) {
+  throw new Error("Slug is required");
+}
+
+const entry = await getEntry("blog", slug);
+
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await entry.render();
+---
+
+<MainLayout>
+  <button>
+    <Link
+      text={"Back To Articles"}
+      href={"/articles/"}
+      isFilled={true}
+      borderVisible={true}
+      icon={{
+        name: "arrow-back",
+        side: "left",
+      }}
+    />
+  </button>
+  <article>
+    <ArticleHeader />
+    <div class="content">
+      <Content />
+    </div>
+  </article>
+</MainLayout>

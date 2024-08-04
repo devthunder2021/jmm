@@ -1,0 +1,33 @@
+<form id="search-form" class="flex items-center" action="/articles/search">
+  <label for="search-input" class="sr-only">Search</label>
+  <div class="relative w-full">
+    <input
+      type="text"
+      id="query"
+      name="query"
+      class="bg-platinum/75 dark:bg-black/75 border border-black/10 dark:border-white/50 text-dim-gray dark:text-white text-lg rounded-lg focus:ring-pigment-green focus:border-pigment-green block w-full p-2.5"
+      placeholder="Search articles..."
+      required
+    />
+  </div>
+  <button
+    type="submit"
+    class="p-2.5 ms-2 text-sm font-medium text-white hover:text-black dark:text-black hover:dark:text-white bg-pigment-green dark:bg-dark-pastel-green rounded-lg border border-pigment-green dark:border-dark-pastel-green hover:bg-dark-pastel-green dark:hover:bg-pigment-green focus:ring-4 focus:outline-none focus:ring-pigment-green dark:focus:ring-dark-pastel-green"
+  >
+    <svg
+      class="w-6 h-6"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 20 20"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"></path>
+    </svg>
+    <span class="sr-only">Search</span>
+  </button>
+</form>

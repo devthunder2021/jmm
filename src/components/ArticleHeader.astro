@@ -1,0 +1,37 @@
+---
+import { formatDate } from "../utils";
+import { Image } from "astro:assets";
+import Tags from "./Tags.astro";
+import { getEntry } from "astro:content";
+
+const { slug } = Astro.params;
+
+if (slug === undefined) {
+  throw new Error("Slug is required");
+}
+
+const entry = await getEntry("blog", slug);
+
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+---
+
+<header class="pt-6" id="blog__header">
+  <h1 class="mb-4">{entry.data.title}</h1>
+  <p class="mb-4">{entry.data.description}</p>
+  <h3 class="text-lg tracking-wide font-geist-400 mb-2">
+    Written by <span class="font-geist-500">{entry.data.author}</span> on <span
+      class="font-geist-500">{formatDate(entry.data.date)}</span
+    >
+  </h3>
+  <Tags tags={entry.data.tags} />
+  <Image
+    src={"/assets/images/articles" + entry.data.image}
+    alt={entry.data.title}
+    width={1920}
+    height={1080}
+    loading={"eager"}
+    class="w-full h-auto rounded-xl my-8"
+  />
+</header>

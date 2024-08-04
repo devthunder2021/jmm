@@ -256,6 +256,13 @@ GEIST SANS
 [x-cloak] {
   display: none !important;
 }
+/* badges */
+.badge-primary {
+  @apply px-2 py-1 bg-pigment-green dark:bg-dark-pastel-green text-platinum dark:text-black rounded-full text-sm hover:opacity-80;
+}
+.badge-secondary {
+  @apply px-2 py-1 bg-dark-pastel-green dark:bg-pigment-green text-black dark:text-platinum rounded-full text-sm hover:opacity-80;
+}
 /**********
 NAVIGATION
 **********/
@@ -278,4 +285,32 @@ button .link {
 /* active link */
 .link[aria-current="page"] {
   @apply text-black dark:text-white-smoke font-geist-600;
+}
+/**********
+ARTICLES
+**********/
+article .content {
+  @apply w-full py-4 space-y-4;
+}
+article h1 {
+  @apply text-6xl font-geist-900;
+}
+article .content h2 {
+  @apply text-5xl font-geist-600;
+}
+article .content h3 {
+  @apply text-4xl font-geist-600;
+}
+article .content h4 {
+  @apply text-3xl font-geist-500;
+}
+article .content h5,
+article .content h6 {
+  @apply text-2xl;
+}
+article .content p {
+  @apply pb-8;
+}
+article p {
+  @apply text-xl font-geist-mono-400 leading-relaxed;
 }
